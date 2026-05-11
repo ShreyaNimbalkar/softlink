@@ -19,6 +19,7 @@ import {
   faPhone,
   faBuilding,
   faCommentDots,
+  faFileArrowDown,
 } from "@fortawesome/free-solid-svg-icons";
 
 const services = [
@@ -26,24 +27,28 @@ const services = [
     icon: faLaptop,
     title: "Laptop Repair",
     desc: "Complete repair and maintenance solutions for all laptop brands and models.",
+    quotation: "/quotations/laptop-repair.pdf",
   },
 
   {
     icon: faDesktop,
     title: "Desktop Services",
     desc: "Hardware upgrades, troubleshooting, maintenance, and custom system support.",
+    quotation: "/quotations/desktop-services.pdf",
   },
 
   {
     icon: faNetworkWired,
     title: "Networking Hardware",
     desc: "Routers, switches, accessories, and networking infrastructure support.",
+    quotation: "/quotations/networking-hardware.pdf",
   },
 
   {
     icon: faCamera,
     title: "CCTV Systems",
     desc: "Installation, maintenance, and repair of surveillance camera systems.",
+    quotation: "/quotations/cctv-systems.pdf",
   },
 ];
 
@@ -72,6 +77,7 @@ export default function RepairRentalBody() {
         {/* GLOW */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 left-0 h-72 w-72 rounded-full bg-[#33CCCC]/10 blur-3xl" />
+
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:80px_80px]" />
         </div>
 
@@ -90,7 +96,7 @@ export default function RepairRentalBody() {
 
             <h2 className="mt-6 text-4xl md:text-5xl font-black text-slate-900 dark:text-white leading-tight">
               Complete Repair &
-              <span className="text-[#33CCCC]">\{" "}\Rental Infrastructure\</span>
+              <span className="text-[#33CCCC]"> Rental Infrastructure</span>
             </h2>
 
             <p className="mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-400">
@@ -101,16 +107,19 @@ export default function RepairRentalBody() {
           </motion.div>
 
           {/* CARDS */}
-          <div className="mt-20 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-20 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
             {services.map((service, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{duration: 0.5, delay: index * 0.1,}}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.1,
+                }}
                 viewport={{ once: true }}
-                whileHover={{ y: -8,}}
-                className="group relative flex min-h-[420px] flex-col overflow-hidden rounded-[32px] border border-slate-200 bg-white p-8 shadow-sm transition-all duration-500 hover:border-[#33CCCC]/30 hover:shadow-2xl hover:shadow-[#33CCCC]/10 dark:border-white/10 dark:bg-white/[0.03]"
+                whileHover={{ y: -8 }}
+                className="group relative flex min-h-[430px] flex-col overflow-hidden rounded-[32px] border border-slate-200 bg-white p-8 shadow-sm transition-all duration-500 hover:border-[#33CCCC]/30 hover:shadow-2xl hover:shadow-[#33CCCC]/10 dark:border-white/10 dark:bg-white/[0.03]"
               >
                 {/* HOVER BG */}
                 <div className="absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100">
@@ -118,30 +127,59 @@ export default function RepairRentalBody() {
                 </div>
 
                 <div className="relative flex h-full flex-col">
+                  {/* ICON */}
                   <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#33CCCC]/10 text-[#33CCCC]">
-                    <FontAwesomeIcon icon={service.icon} className="text-2xl"/>
+                    <FontAwesomeIcon
+                      icon={service.icon}
+                      className="text-2xl"
+                    />
                   </div>
 
-                  <h3 className="mt-8 text-2xl font-black text-slate-900 dark:text-white">
+                  {/* TITLE */}
+                  <h3 className="mt-8 text-2xl font-black leading-tight text-slate-900 dark:text-white">
                     {service.title}
                   </h3>
 
+                  {/* DESC */}
                   <p className="mt-5 leading-relaxed text-slate-600 dark:text-slate-400">
                     {service.desc}
                   </p>
 
-                  <div className="mt-8 flex items-center gap-3 text-sm font-semibold text-[#33CCCC]">
+                  {/* SUPPORT */}
+                  <div className="mt-7 flex items-center gap-3 text-sm font-semibold text-[#33CCCC]">
                     <FontAwesomeIcon icon={faCheck} />
+
                     Professional Support
                   </div>
 
-                  {/* BUTTON */}
-                  <div className="mt-auto pt-10">
-                    <button onClick={() => openServiceModal(service.title)} className="group inline-flex w-full items-center justify-center gap-3 rounded-2xl bg-[#33CCCC] px-6 py-4 font-semibold text-white shadow-xl shadow-[#33CCCC]/20 transition-all duration-300 hover:scale-[1.02] hover:bg-[#29B3B3]">
+                  {/* BUTTONS */}
+                  <div className="mt-auto pt-10 flex flex-col gap-4">
+                    {/* TAKE SERVICE */}
+                    <button
+                      onClick={() => openServiceModal(service.title)}
+                      className="group inline-flex h-14 w-full items-center justify-center gap-3 rounded-2xl bg-[#33CCCC] px-6 font-semibold text-white shadow-xl shadow-[#33CCCC]/20 transition-all duration-300 hover:scale-[1.02] hover:bg-[#29B3B3]"
+                    >
                       Take Service
 
-                      <FontAwesomeIcon icon={faArrowRight} className="text-sm transition-transform duration-300 group-hover:translate-x-1"/>
+                      <FontAwesomeIcon
+                        icon={faArrowRight}
+                        className="text-sm transition-transform duration-300 group-hover:translate-x-1"
+                      />
                     </button>
+
+                    {/* DOWNLOAD QUOTATION */}
+                    <a
+                      href={service.quotation}
+                      download
+                      className="group inline-flex h-14 w-full items-center justify-center gap-3 rounded-2xl border border-[#33CCCC]/20 bg-[#33CCCC]/5 px-6 font-semibold text-[#33CCCC] transition-all duration-300 hover:border-[#33CCCC] hover:bg-[#33CCCC] hover:text-white"
+                    >
+                      <FontAwesomeIcon
+                        icon={faFileArrowDown}
+                        className="text-sm"
+                      />
+
+                      Download Quotation
+                    </a>
                   </div>
                 </div>
               </motion.div>
@@ -191,7 +229,10 @@ export default function RepairRentalBody() {
                       </p>
                     </div>
 
-                    <button onClick={closeModal} className="flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-700 transition hover:border-[#33CCCC] hover:text-[#33CCCC] dark:border-white/10 dark:bg-slate-900 dark:text-white">
+                    <button
+                      onClick={closeModal}
+                      className="flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-700 transition hover:border-[#33CCCC] hover:text-[#33CCCC] dark:border-white/10 dark:bg-slate-900 dark:text-white"
+                    >
                       <FontAwesomeIcon icon={faXmark} />
                     </button>
                   </div>
@@ -207,9 +248,16 @@ export default function RepairRentalBody() {
                       </label>
 
                       <div className="relative">
-                        <FontAwesomeIcon icon={faUser} className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400"/>
+                        <FontAwesomeIcon
+                          icon={faUser}
+                          className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400"
+                        />
 
-                        <input type="text" placeholder="Enter your name" className="h-14 w-full rounded-2xl border border-slate-200 bg-white pl-14 pr-5 text-slate-900 outline-none transition focus:border-[#33CCCC] dark:border-white/10 dark:bg-slate-900 dark:text-white"/>
+                        <input
+                          type="text"
+                          placeholder="Enter your name"
+                          className="h-14 w-full rounded-2xl border border-slate-200 bg-white pl-14 pr-5 text-slate-900 outline-none transition focus:border-[#33CCCC] dark:border-white/10 dark:bg-slate-900 dark:text-white"
+                        />
                       </div>
                     </div>
 
@@ -220,9 +268,16 @@ export default function RepairRentalBody() {
                       </label>
 
                       <div className="relative">
-                        <FontAwesomeIcon icon={faEnvelope} className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400"/>
+                        <FontAwesomeIcon
+                          icon={faEnvelope}
+                          className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400"
+                        />
 
-                        <input type="email" placeholder="Enter your email" className="h-14 w-full rounded-2xl border border-slate-200 bg-white pl-14 pr-5 text-slate-900 outline-none transition focus:border-[#33CCCC] dark:border-white/10 dark:bg-slate-900 dark:text-white"/>
+                        <input
+                          type="email"
+                          placeholder="Enter your email"
+                          className="h-14 w-full rounded-2xl border border-slate-200 bg-white pl-14 pr-5 text-slate-900 outline-none transition focus:border-[#33CCCC] dark:border-white/10 dark:bg-slate-900 dark:text-white"
+                        />
                       </div>
                     </div>
 
@@ -233,9 +288,16 @@ export default function RepairRentalBody() {
                       </label>
 
                       <div className="relative">
-                        <FontAwesomeIcon icon={faPhone} className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400"/>
+                        <FontAwesomeIcon
+                          icon={faPhone}
+                          className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400"
+                        />
 
-                        <input type="tel" placeholder="Enter phone number" className="h-14 w-full rounded-2xl border border-slate-200 bg-white pl-14 pr-5 text-slate-900 outline-none transition focus:border-[#33CCCC] dark:border-white/10 dark:bg-slate-900 dark:text-white"/>
+                        <input
+                          type="tel"
+                          placeholder="Enter phone number"
+                          className="h-14 w-full rounded-2xl border border-slate-200 bg-white pl-14 pr-5 text-slate-900 outline-none transition focus:border-[#33CCCC] dark:border-white/10 dark:bg-slate-900 dark:text-white"
+                        />
                       </div>
                     </div>
 
@@ -270,7 +332,7 @@ export default function RepairRentalBody() {
                       <button type="submit" className="inline-flex items-center gap-3 rounded-2xl bg-[#33CCCC] px-8 py-4 font-semibold text-white shadow-xl shadow-[#33CCCC]/20 transition-all duration-300 hover:scale-[1.01] hover:bg-[#29B3B3]">
                         Submit Inquiry
 
-                        <FontAwesomeIcon icon={faArrowRight} className="text-sm"/>
+                        <FontAwesomeIcon icon={faArrowRight} className="text-sm" />
                       </button>
                     </div>
                   </form>

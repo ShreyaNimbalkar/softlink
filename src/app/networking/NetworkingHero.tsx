@@ -187,7 +187,7 @@ export default function NetworkingHero() {
             <FontAwesomeIcon icon={faChevronRight} className="text-[10px] text-slate-500"/>
 
             <span className="text-sm font-semibold text-[#33CCCC]">
-              Repair & Rental Services
+              Networking Services
             </span>
           </div>
         </motion.div>
