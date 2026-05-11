@@ -35,14 +35,15 @@ export default function AboutSection() {
   ];
 
   return (
-    <section className="relative overflow-hidden py-20 sm:py-24 lg:py-28 border-slate-200/80 dark:border-white/10 bg-white dark:bg-slate-950">
+    <section className="relative overflow-hidden py-20 sm:py-24 lg:py-28 border-white/10 bg-slate-950 text-white">
 
       {/* BACKGROUND GLOW */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-[#33CCCC]/10 blur-3xl" />
 
         <div className="absolute bottom-0 right-0 h-60 w-60 rounded-full bg-[#33CCCC]/5 blur-3xl" />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:80px_80px]" />
+
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:80px_80px]" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,7 +61,7 @@ export default function AboutSection() {
           >
 
             {/* IMAGE */}
-            <div className="relative overflow-hidden rounded-[32px] border border-[color:var(--border)] shadow-2xl">
+            <div className="relative overflow-hidden rounded-[32px] border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
 
               <img
                 src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop"
@@ -69,18 +70,18 @@ export default function AboutSection() {
               />
 
               {/* OVERLAY */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
 
             </div>
 
             {/* FLOATING CARD */}
-            <div className="absolute bottom-5 left-5 sm:bottom-8 sm:left-8 bg-[color:var(--surface)]/90 backdrop-blur-xl border border-[color:var(--border)] rounded-2xl p-5 shadow-2xl max-w-[240px]">
+            <div className="absolute bottom-5 left-5 sm:bottom-8 sm:left-8 bg-slate-900/90 backdrop-blur-xl border border-white/10 rounded-2xl p-5 shadow-2xl max-w-[240px]">
 
               <h3 className="text-3xl font-black text-[#33CCCC]">
                 <AnimatedCounter value={12} suffix="+" />
               </h3>
 
-              <p className="mt-2 text-sm leading-relaxed text-[color:var(--text-muted)]">
+              <p className="mt-2 text-sm leading-relaxed text-slate-400">
                 Delivering enterprise-grade IT infrastructure solutions.
               </p>
 
@@ -97,12 +98,12 @@ export default function AboutSection() {
           >
 
             {/* SUBTITLE */}
-            <p className="text-[#33CCCC] uppercase tracking-[4px] font-semibold text-sm">
-              About Company
-            </p>
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#33CCCC]/20 bg-[#33CCCC]/10 px-5 py-2 text-sm font-semibold text-[#33CCCC] backdrop-blur-xl">
+            About Company
+          </div>
 
             {/* TITLE */}
-            <h2 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-black leading-tight text-[color:var(--text)]">
+            <h2 className="mt-6 text-4xl md:text-5xl font-black text-white leading-tight">
               Building Reliable
               <span className="block text-[#33CCCC]">
                 IT Infrastructure
@@ -110,7 +111,7 @@ export default function AboutSection() {
             </h2>
 
             {/* DESCRIPTION */}
-            <p className="mt-7 text-base sm:text-lg leading-relaxed text-[color:var(--text-muted)]">
+            <p className="mt-7 text-base sm:text-lg leading-relaxed text-slate-400">
               SoftLink IT Solutions provides enterprise-grade networking,
               cloud infrastructure, cybersecurity, hardware support,
               and technical consulting services designed to help
@@ -124,12 +125,12 @@ export default function AboutSection() {
                 <motion.div
                   key={index}
                   whileHover={{ y: -4 }}
-                  className="flex items-center gap-4 rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)] p-5 hover:shadow-lg transition-all duration-300"
+                  className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-xl p-5 hover:border-[#33CCCC]/30 hover:bg-white/[0.06] hover:shadow-xl hover:shadow-[#33CCCC]/10 transition-all duration-300"
                 >
 
                   <div className="h-3.5 w-3.5 rounded-full bg-[#33CCCC] shrink-0" />
 
-                  <p className="text-sm sm:text-base font-medium text-[color:var(--text)]">
+                  <p className="text-sm sm:text-base font-medium text-white">
                     {item}
                   </p>
 
@@ -156,7 +157,7 @@ export default function AboutSection() {
             <motion.div
               key={index}
               whileHover={{ y: -5 }}
-              className="rounded-3xl border border-[color:var(--border)] bg-[color:var(--surface)] p-6 sm:p-8 text-center hover:shadow-xl transition-all duration-300"
+              className="rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-xl p-6 sm:p-8 text-center hover:border-[#33CCCC]/30 hover:bg-white/[0.06] hover:shadow-2xl hover:shadow-[#33CCCC]/10 transition-all duration-300"
             >
 
               <h3 className="text-3xl sm:text-4xl font-black text-[#33CCCC]">
@@ -166,7 +167,7 @@ export default function AboutSection() {
                 />
               </h3>
 
-              <p className="mt-3 text-sm sm:text-base text-[color:var(--text-muted)]">
+              <p className="mt-3 text-sm sm:text-base text-slate-400">
                 {item.label}
               </p>
 

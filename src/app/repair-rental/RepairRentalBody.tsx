@@ -73,12 +73,12 @@ export default function RepairRentalBody() {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-white py-28 dark:bg-slate-950">
+      <section className="relative overflow-hidden bg-slate-950 text-white py-28">
         {/* GLOW */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 left-0 h-72 w-72 rounded-full bg-[#33CCCC]/10 blur-3xl" />
 
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:80px_80px]" />
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:80px_80px]" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -94,12 +94,12 @@ export default function RepairRentalBody() {
               Our Solutions
             </div>
 
-            <h2 className="mt-6 text-4xl md:text-5xl font-black text-slate-900 dark:text-white leading-tight">
+            <h2 className="mt-6 text-4xl md:text-5xl font-black text-white leading-tight">
               Complete Repair &
               <span className="text-[#33CCCC]"> Rental Infrastructure</span>
             </h2>
 
-            <p className="mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-400">
+            <p className="mt-6 text-lg leading-relaxed text-slate-300">
               We provide professional repair, maintenance, rental, and IT
               infrastructure support services for businesses, offices,
               institutes, and organizations.
@@ -119,7 +119,7 @@ export default function RepairRentalBody() {
                 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -8 }}
-                className="group relative flex min-h-[430px] flex-col overflow-hidden rounded-[32px] border border-slate-200 bg-white p-8 shadow-sm transition-all duration-500 hover:border-[#33CCCC]/30 hover:shadow-2xl hover:shadow-[#33CCCC]/10 dark:border-white/10 dark:bg-white/[0.03]"
+                className="group relative flex min-h-[430px] flex-col overflow-hidden rounded-[32px] border border-white/10 bg-slate-900/70 backdrop-blur-xl p-8 shadow-sm transition-all duration-500 hover:border-[#33CCCC]/30 hover:shadow-2xl hover:shadow-[#33CCCC]/10"
               >
                 {/* HOVER BG */}
                 <div className="absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100">
@@ -136,12 +136,12 @@ export default function RepairRentalBody() {
                   </div>
 
                   {/* TITLE */}
-                  <h3 className="mt-8 text-2xl font-black leading-tight text-slate-900 dark:text-white">
+                  <h3 className="mt-8 text-2xl font-black leading-tight text-white">
                     {service.title}
                   </h3>
 
                   {/* DESC */}
-                  <p className="mt-5 leading-relaxed text-slate-600 dark:text-slate-400">
+                  <p className="mt-5 leading-relaxed text-slate-300">
                     {service.desc}
                   </p>
 
@@ -198,7 +198,7 @@ export default function RepairRentalBody() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={closeModal}
-              className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-md"
+              className="fixed inset-0 z-[100] bg-black/70 backdrop-blur-md"
             />
 
             {/* MODAL */}
@@ -209,9 +209,9 @@ export default function RepairRentalBody() {
               transition={{ duration: 0.3 }}
               className="fixed inset-0 z-[101] flex items-center justify-center p-4"
             >
-              <div className="relative w-full max-w-2xl overflow-hidden rounded-[36px] border border-slate-200 bg-white shadow-2xl dark:border-white/10 dark:bg-slate-950">
+              <div className="relative w-full max-w-2xl overflow-hidden rounded-[36px] border border-white/10 bg-slate-950 text-white shadow-2xl">
                 {/* TOP */}
-                <div className="relative overflow-hidden border-b border-slate-200 px-8 py-7 dark:border-white/10">
+                <div className="relative overflow-hidden border-b border-white/10 px-8 py-7">
                   <div className="absolute inset-0 bg-gradient-to-r from-[#33CCCC]/10 to-transparent" />
 
                   <div className="relative flex items-start justify-between gap-6">
@@ -220,18 +220,18 @@ export default function RepairRentalBody() {
                         Service Inquiry
                       </div>
 
-                      <h3 className="mt-5 text-3xl font-black text-slate-900 dark:text-white">
+                      <h3 className="mt-5 text-3xl font-black text-white">
                         {selectedService}
                       </h3>
 
-                      <p className="mt-3 text-slate-600 dark:text-slate-400">
+                      <p className="mt-3 text-slate-400">
                         Fill out the form and our team will contact you shortly.
                       </p>
                     </div>
 
                     <button
                       onClick={closeModal}
-                      className="flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-700 transition hover:border-[#33CCCC] hover:text-[#33CCCC] dark:border-white/10 dark:bg-slate-900 dark:text-white"
+                      className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-slate-900 text-white transition hover:border-[#33CCCC] hover:text-[#33CCCC]"
                     >
                       <FontAwesomeIcon icon={faXmark} />
                     </button>
@@ -243,96 +243,116 @@ export default function RepairRentalBody() {
                   <form className="grid gap-6 md:grid-cols-2">
                     {/* NAME */}
                     <div>
-                      <label className="mb-3 block text-sm font-semibold text-slate-700 dark:text-slate-300">
+                      <label className="mb-3 block text-sm font-semibold text-slate-300">
                         Full Name
                       </label>
 
                       <div className="relative">
                         <FontAwesomeIcon
                           icon={faUser}
-                          className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400"
+                          className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-500"
                         />
 
                         <input
                           type="text"
                           placeholder="Enter your name"
-                          className="h-14 w-full rounded-2xl border border-slate-200 bg-white pl-14 pr-5 text-slate-900 outline-none transition focus:border-[#33CCCC] dark:border-white/10 dark:bg-slate-900 dark:text-white"
+                          className="h-14 w-full rounded-2xl border border-white/10 bg-slate-900 pl-14 pr-5 text-white outline-none transition focus:border-[#33CCCC]"
                         />
                       </div>
                     </div>
 
                     {/* EMAIL */}
                     <div>
-                      <label className="mb-3 block text-sm font-semibold text-slate-700 dark:text-slate-300">
+                      <label className="mb-3 block text-sm font-semibold text-slate-300">
                         Email Address
                       </label>
 
                       <div className="relative">
                         <FontAwesomeIcon
                           icon={faEnvelope}
-                          className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400"
+                          className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-500"
                         />
 
                         <input
                           type="email"
                           placeholder="Enter your email"
-                          className="h-14 w-full rounded-2xl border border-slate-200 bg-white pl-14 pr-5 text-slate-900 outline-none transition focus:border-[#33CCCC] dark:border-white/10 dark:bg-slate-900 dark:text-white"
+                          className="h-14 w-full rounded-2xl border border-white/10 bg-slate-900 pl-14 pr-5 text-white outline-none transition focus:border-[#33CCCC]"
                         />
                       </div>
                     </div>
 
                     {/* PHONE */}
                     <div>
-                      <label className="mb-3 block text-sm font-semibold text-slate-700 dark:text-slate-300">
+                      <label className="mb-3 block text-sm font-semibold text-slate-300">
                         Phone Number
                       </label>
 
                       <div className="relative">
                         <FontAwesomeIcon
                           icon={faPhone}
-                          className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400"
+                          className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-500"
                         />
 
                         <input
                           type="tel"
                           placeholder="Enter phone number"
-                          className="h-14 w-full rounded-2xl border border-slate-200 bg-white pl-14 pr-5 text-slate-900 outline-none transition focus:border-[#33CCCC] dark:border-white/10 dark:bg-slate-900 dark:text-white"
+                          className="h-14 w-full rounded-2xl border border-white/10 bg-slate-900 pl-14 pr-5 text-white outline-none transition focus:border-[#33CCCC]"
                         />
                       </div>
                     </div>
 
                     {/* COMPANY */}
                     <div>
-                      <label className="mb-3 block text-sm font-semibold text-slate-700 dark:text-slate-300">
+                      <label className="mb-3 block text-sm font-semibold text-slate-300">
                         Company Name
                       </label>
 
                       <div className="relative">
-                        <FontAwesomeIcon icon={faBuilding} className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400"/>
+                        <FontAwesomeIcon
+                          icon={faBuilding}
+                          className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-500"
+                        />
 
-                        <input type="text" placeholder="Enter company name" className="h-14 w-full rounded-2xl border border-slate-200 bg-white pl-14 pr-5 text-slate-900 outline-none transition focus:border-[#33CCCC] dark:border-white/10 dark:bg-slate-900 dark:text-white"/>
+                        <input
+                          type="text"
+                          placeholder="Enter company name"
+                          className="h-14 w-full rounded-2xl border border-white/10 bg-slate-900 pl-14 pr-5 text-white outline-none transition focus:border-[#33CCCC]"
+                        />
                       </div>
                     </div>
 
                     {/* MESSAGE */}
                     <div className="md:col-span-2">
-                      <label className="mb-3 block text-sm font-semibold text-slate-700 dark:text-slate-300">
+                      <label className="mb-3 block text-sm font-semibold text-slate-300">
                         Service Requirement
                       </label>
 
                       <div className="relative">
-                        <FontAwesomeIcon icon={faCommentDots} className="absolute left-5 top-6 text-slate-400"/>
+                        <FontAwesomeIcon
+                          icon={faCommentDots}
+                          className="absolute left-5 top-6 text-slate-500"
+                        />
 
-                        <textarea rows={5} placeholder="Describe your service requirement..." className="w-full rounded-3xl border border-slate-200 bg-white pl-14 pr-5 pt-5 text-slate-900 outline-none transition focus:border-[#33CCCC] dark:border-white/10 dark:bg-slate-900 dark:text-white"/>
+                        <textarea
+                          rows={5}
+                          placeholder="Describe your service requirement..."
+                          className="w-full rounded-3xl border border-white/10 bg-slate-900 pl-14 pr-5 pt-5 text-white outline-none transition focus:border-[#33CCCC]"
+                        />
                       </div>
                     </div>
 
                     {/* BUTTON */}
                     <div className="md:col-span-2">
-                      <button type="submit" className="inline-flex items-center gap-3 rounded-2xl bg-[#33CCCC] px-8 py-4 font-semibold text-white shadow-xl shadow-[#33CCCC]/20 transition-all duration-300 hover:scale-[1.01] hover:bg-[#29B3B3]">
+                      <button
+                        type="submit"
+                        className="inline-flex items-center gap-3 rounded-2xl bg-[#33CCCC] px-8 py-4 font-semibold text-white shadow-xl shadow-[#33CCCC]/20 transition-all duration-300 hover:scale-[1.01] hover:bg-[#29B3B3]"
+                      >
                         Submit Inquiry
 
-                        <FontAwesomeIcon icon={faArrowRight} className="text-sm" />
+                        <FontAwesomeIcon
+                          icon={faArrowRight}
+                          className="text-sm"
+                        />
                       </button>
                     </div>
                   </form>

@@ -74,14 +74,14 @@ export default function TestimonialsSection() {
   );
 
   return (
-    <section className="relative overflow-hidden py-28 bg-white dark:bg-slate-950">
+    <section className="relative overflow-hidden py-28 bg-slate-950 text-white">
       {/* BACKGROUND GLOW */}
       <div className="absolute inset-0">
         <div className="absolute left-0 top-0 h-96 w-96 rounded-full bg-[#33CCCC]/20 blur-3xl" />
 
         <div className="absolute right-0 bottom-0 h-[400px] w-[400px] rounded-full bg-[#33CCCC]/10 blur-3xl" />
 
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:80px_80px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:80px_80px]" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -97,12 +97,12 @@ export default function TestimonialsSection() {
             Client Testimonials
           </div>
 
-          <h2 className="mt-6 text-4xl md:text-5xl font-black text-slate-900 dark:text-white leading-tight">
+          <h2 className="mt-6 text-4xl md:text-5xl font-black text-white leading-tight">
             What Our Clients
             <span className="text-[#33CCCC]"> Say About Us</span>
           </h2>
 
-          <p className="mt-6 text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+          <p className="mt-6 text-lg text-slate-300 leading-relaxed">
             Trusted by businesses for delivering reliable IT infrastructure,
             networking, security, and enterprise technology solutions.
           </p>
@@ -113,11 +113,16 @@ export default function TestimonialsSection() {
           <button
             onClick={prevSlide}
             disabled={startIndex === 0}
-            className="h-12 w-12 rounded-full border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 text-slate-700 dark:text-white transition hover:border-[#33CCCC]/30 hover:text-[#33CCCC] disabled:opacity-40 disabled:cursor-not-allowed">
+            className="h-12 w-12 rounded-full border border-white/10 bg-slate-900 text-white transition hover:border-[#33CCCC]/40 hover:text-[#33CCCC] disabled:opacity-40 disabled:cursor-not-allowed"
+          >
             <FontAwesomeIcon icon={faArrowLeft} />
           </button>
 
-          <button onClick={nextSlide} disabled={startIndex + visibleCards >= testimonials.length} className="h-12 w-12 rounded-full bg-[#33CCCC] text-white transition hover:scale-105 disabled:opacity-40 disabled:cursor-not-allowed">
+          <button
+            onClick={nextSlide}
+            disabled={startIndex + visibleCards >= testimonials.length}
+            className="h-12 w-12 rounded-full bg-[#33CCCC] text-white transition hover:scale-105 disabled:opacity-40 disabled:cursor-not-allowed"
+          >
             <FontAwesomeIcon icon={faArrowRight} />
           </button>
         </div>
@@ -136,10 +141,10 @@ export default function TestimonialsSection() {
               {visibleTestimonials.map((item, index) => (
                 <motion.div
                   key={index}
-                  whileHover={{ y: -8,}}
+                  whileHover={{ y: -8 }}
                   className="group h-full"
                 >
-                  <div className="relative overflow-hidden rounded-[32px] border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-white/5 backdrop-blur-xl p-10 shadow-sm hover:border-[#33CCCC]/30 hover:shadow-2xl hover:shadow-[#33CCCC]/10 transition-all duration-500 h-[350px] flex flex-col">
+                  <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-slate-900/80 backdrop-blur-xl p-10 shadow-sm hover:border-[#33CCCC]/30 hover:shadow-2xl hover:shadow-[#33CCCC]/10 transition-all duration-500 h-[350px] flex flex-col">
                     {/* HOVER GLOW */}
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500">
                       <div className="absolute inset-0 bg-gradient-to-br from-[#33CCCC]/10 via-transparent to-transparent" />
@@ -153,13 +158,17 @@ export default function TestimonialsSection() {
 
                       <div className="flex items-center gap-1 text-[#33CCCC]">
                         {[...Array(5)].map((_, i) => (
-                          <FontAwesomeIcon key={i} icon={faStar} className="text-sm"/>
+                          <FontAwesomeIcon
+                            key={i}
+                            icon={faStar}
+                            className="text-sm"
+                          />
                         ))}
                       </div>
                     </div>
 
                     {/* TEXT */}
-                    <p className="relative mt-8 text-lg leading-relaxed text-slate-600 dark:text-slate-300 flex-1">
+                    <p className="relative mt-8 text-lg leading-relaxed text-slate-300 flex-1">
                       “{item.text}”
                     </p>
 
@@ -170,11 +179,11 @@ export default function TestimonialsSection() {
                       </div>
 
                       <div>
-                        <h3 className="text-xl font-black text-slate-900 dark:text-white">
+                        <h3 className="text-xl font-black text-white">
                           {item.name}
                         </h3>
 
-                        <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
+                        <p className="mt-1 text-sm text-slate-400">
                           {item.company}
                         </p>
                       </div>
@@ -194,7 +203,16 @@ export default function TestimonialsSection() {
           {Array.from({
             length: testimonials.length - visibleCards + 1,
           }).map((_, index) => (
-            <button key={index} onClick={() => setStartIndex(index)} className={`h-2 rounded-full transition-all duration-300 ${ startIndex === index ? "w-10 bg-[#33CCCC]" : "w-2 bg-slate-300 dark:bg-white/20"}`}/>))}
+            <button
+              key={index}
+              onClick={() => setStartIndex(index)}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                startIndex === index
+                  ? "w-10 bg-[#33CCCC]"
+                  : "w-2 bg-white/20"
+              }`}
+            />
+          ))}
         </div>
 
         {/* FOOTER */}
@@ -205,7 +223,7 @@ export default function TestimonialsSection() {
           viewport={{ once: true }}
           className="mt-20 text-center"
         >
-          <p className="text-sm text-slate-500 dark:text-slate-400">
+          <p className="text-sm text-slate-400">
             Delivering trusted technology solutions with long-term client
             relationships.
           </p>

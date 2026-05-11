@@ -48,14 +48,15 @@ const brands = [
 
 export default function TrustedBrands() {
   return (
-    <section className="relative overflow-hidden border-y border-slate-200/80 dark:border-white/10 bg-white dark:bg-slate-950 py-20">
-      
+    <section className="relative overflow-hidden border-y border-white/10 bg-slate-950 text-white py-20">
+
       {/* BACKGROUND GLOW */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-[#33CCCC]/10 blur-3xl" />
 
         <div className="absolute bottom-0 right-0 h-60 w-60 rounded-full bg-[#33CCCC]/5 blur-3xl" />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:80px_80px]" />
+
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:80px_80px]" />
       </div>
 
       <div className="relative max-w-7xl mx-auto">
@@ -68,15 +69,15 @@ export default function TrustedBrands() {
           viewport={{ once: true }}
           className="flex flex-col items-center px-4 text-center"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#33CCCC]/20 bg-[#33CCCC]/10 px-5 py-2 text-sm font-semibold text-[#33CCCC]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#33CCCC]/20 bg-[#33CCCC]/10 px-5 py-2 text-sm font-semibold text-[#33CCCC] backdrop-blur-xl">
             Trusted Partnerships
           </div>
 
-          <h2 className="mt-6 text-3xl sm:text-4xl font-black text-slate-900 dark:text-white">
+          <h2 className="mt-6 text-3xl sm:text-4xl font-black text-white">
             Brands We Work With
           </h2>
 
-          <p className="mt-4 max-w-2xl text-slate-600 dark:text-slate-400 leading-relaxed">
+          <p className="mt-4 max-w-2xl text-slate-400 leading-relaxed">
             Delivering enterprise-grade IT infrastructure, networking,
             hardware support, and technology solutions with trusted
             global brands.
@@ -87,10 +88,10 @@ export default function TrustedBrands() {
         <div className="relative mt-16 overflow-hidden">
 
           {/* LEFT FADE */}
-          <div className="absolute left-0 top-0 z-10 h-full w-32 bg-gradient-to-r from-white dark:from-slate-950 to-transparent" />
+          <div className="absolute left-0 top-0 z-10 h-full w-32 bg-gradient-to-r from-slate-950 to-transparent" />
 
           {/* RIGHT FADE */}
-          <div className="absolute right-0 top-0 z-10 h-full w-32 bg-gradient-to-l from-white dark:from-slate-950 to-transparent" />
+          <div className="absolute right-0 top-0 z-10 h-full w-32 bg-gradient-to-l from-slate-950 to-transparent" />
 
           <motion.div
             animate={{
@@ -110,14 +111,21 @@ export default function TrustedBrands() {
                   y: -6,
                   scale: 1.03,
                 }}
-                className="group relative flex h-[140px] w-[220px] flex-shrink-0 items-center justify-center overflow-hidden rounded-3xl border border-slate-200 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur-xl px-6 py-8 shadow-sm hover:border-[#33CCCC]/30 hover:shadow-2xl hover:shadow-[#33CCCC]/10 transition-all duration-500">
+                className="group relative flex h-[140px] w-[220px] flex-shrink-0 items-center justify-center overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-xl px-6 py-8 shadow-[0_10px_40px_rgba(0,0,0,0.35)] hover:border-[#33CCCC]/40 hover:bg-white/[0.06] hover:shadow-2xl hover:shadow-[#33CCCC]/10 transition-all duration-500"
+              >
                 {/* HOVER GLOW */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500">
                   <div className="absolute inset-0 bg-gradient-to-br from-[#33CCCC]/10 via-transparent to-transparent" />
                 </div>
 
                 <div className="relative flex h-16 items-center justify-center">
-                  <Image src={brand.logo} alt={brand.name} width={140} height={60} className="object-contain grayscale opacity-70 transition-all duration-500 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"/>
+                  <Image
+                    src={brand.logo}
+                    alt={brand.name}
+                    width={140}
+                    height={60}
+                    className="object-contain grayscale opacity-70 transition-all duration-500 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
+                  />
                 </div>
               </motion.div>
             ))}
@@ -132,7 +140,7 @@ export default function TrustedBrands() {
           viewport={{ once: true }}
           className="mt-16 px-4 text-center"
         >
-          <p className="text-sm text-slate-500 dark:text-slate-400">
+          <p className="text-sm text-slate-500">
             Building long-term technology partnerships across industries
           </p>
         </motion.div>

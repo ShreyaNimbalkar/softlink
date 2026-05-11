@@ -35,21 +35,7 @@ export default function CTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="
-            relative
-            overflow-hidden
-            rounded-[40px]
-            border
-            border-white/10
-            bg-white/[0.04]
-            backdrop-blur-2xl
-            px-8
-            py-16
-            md:px-16
-            md:py-20
-            shadow-[0_20px_80px_rgba(0,0,0,0.45)]
-          "
-        >
+          className="relative overflow-hidden rounded-[40px] border border-white/10 bg-white/[0.04] backdrop-blur-2xl px-8 py-16 md:px-16 md:py-20 shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
           {/* INNER GLOW */}
           <div className="absolute inset-0 bg-gradient-to-br from-[#33CCCC]/10 via-transparent to-transparent pointer-events-none" />
 
@@ -63,14 +49,14 @@ export default function CTASection() {
 
           {/* HEADING */}
           <div className="mx-auto mt-8 max-w-4xl text-center">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight text-white">
+            <h2 className="mt-5 text-3xl font-black leading-tight text-white md:text-5xl">
               Ready To Upgrade Your
               <span className="block text-[#33CCCC]">
                 IT Infrastructure?
               </span>
             </h2>
 
-            <p className="mt-8 text-lg leading-relaxed text-slate-300 max-w-3xl mx-auto">
+            <p className="mt-8 max-w-4xl text-lg leading-relaxed text-slate-300">
               Build secure, scalable, and future-ready technology systems
               with professional IT support, networking, surveillance,
               server management, and infrastructure solutions tailored
@@ -79,7 +65,7 @@ export default function CTASection() {
           </div>
 
           {/* FEATURE POINTS */}
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
+          {/* <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
             {[
               "24/7 Technical Support",
               "Enterprise Security",
@@ -104,10 +90,10 @@ export default function CTASection() {
                 {item}
               </div>
             ))}
-          </div>
+          </div> */}
 
           {/* CTA BUTTONS */}
-          <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-5">
+          {/* <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-5">
             <motion.div
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.98 }}
@@ -170,26 +156,11 @@ export default function CTASection() {
                 Explore Services
               </Link>
             </motion.div>
-          </div>
+          </div> */}
 
           {/* SUPPORT CARD */}
           <div className="mt-16 flex justify-center">
-            <div
-              className="
-                flex
-                flex-col
-                sm:flex-row
-                items-center
-                gap-5
-                rounded-3xl
-                border
-                border-white/10
-                bg-white/[0.04]
-                px-6
-                py-5
-                backdrop-blur-xl
-              "
-            >
+            <div className="flex flex-col sm:flex-row items-center gap-5 rounded-3xl border border-white/10 bg-white/[0.04] px-6 py-5 backdrop-blur-xl">
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#33CCCC]/15 text-[#33CCCC] text-xl">
                 <FontAwesomeIcon icon={faPhoneVolume} />
               </div>
@@ -204,21 +175,7 @@ export default function CTASection() {
                 </h4>
               </div>
 
-              <Link
-                href="/contact"
-                className="
-                  rounded-full
-                  bg-white
-                  px-6
-                  py-3
-                  text-sm
-                  font-bold
-                  text-slate-950
-                  transition-all
-                  duration-300
-                  hover:scale-105
-                "
-              >
+              <Link href="/contact"className="rounded-full bg-white px-6 py-3 text-sm font-bold text-slate-950 transition-all duration-300 hover:scale-105">
                 Contact Now
               </Link>
             </div>

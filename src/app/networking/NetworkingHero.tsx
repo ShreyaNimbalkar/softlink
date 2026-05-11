@@ -11,6 +11,7 @@ import {
   faLaptop,
   faVideo,
 } from "@fortawesome/free-solid-svg-icons";
+import { faCheck } from "@fortawesome/free-solid-svg-icons/faCheck";
 
 
 export default function NetworkingHero() {
@@ -68,10 +69,10 @@ export default function NetworkingHero() {
             transition={{ duration: 0.7 }}
             className="relative"
           >
-            <div className="hidden lg:block relative overflow-hidden rounded-[40px] border border-white/10 bg-white/5 p-6 backdrop-blur-2xl">
+            {/* <div className="hidden lg:block relative overflow-hidden rounded-[40px] border border-white/10 bg-white/5 p-6 backdrop-blur-2xl"> */}
               {/* TOP CARD */}
               {/* SERVICE 1 */}
-              <div className="rounded-3xl border border-white/10 bg-slate-900/60 p-8">
+              {/* <div className="rounded-3xl border border-white/10 bg-slate-900/60 p-8">
 <div className="flex items-start gap-5">
 
   <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#33CCCC]/20 text-[#33CCCC]">
@@ -88,10 +89,10 @@ export default function NetworkingHero() {
     </p>
   </div>
 
-</div>
+</div> */}
 
 {/* SERVICE 2 */}
-<div className="flex items-start gap-5 mt-5">
+{/* <div className="flex items-start gap-5 mt-5">
 
   <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#33CCCC]/20 text-[#33CCCC]">
     <FontAwesomeIcon icon={faLaptop} className="text-2xl"/>
@@ -107,10 +108,10 @@ export default function NetworkingHero() {
     </p>
   </div>
 
-</div>
+</div> */}
 
 {/* SERVICE 3 */}
-<div className="flex items-start gap-5 mt-5">
+{/* <div className="flex items-start gap-5 mt-5">
 
   <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#33CCCC]/20 text-[#33CCCC]">
     <FontAwesomeIcon icon={faVideo} className="text-2xl"/>
@@ -127,7 +128,7 @@ export default function NetworkingHero() {
   </div>
 
 </div>
-</div>
+</div> */}
 
               {/* SMALL CARDS */}
               {/* <div className="mt-6 grid grid-cols-2 gap-5">
@@ -162,6 +163,26 @@ export default function NetworkingHero() {
                   </p>
                 </div>
               </div> */}
+            {/* </div> */}
+            <div className="mt-10 flex flex-col gap-4">
+              {[
+                "Network Setup : Wired, wireless & NAS solutions for offices and businesses",
+                "Laptop & Desktop Sales : Old/new laptops, desktops & IT accessories available",
+                "CCTV & Security Systems : CCTV, attendance machines & IP PBX security solutions",
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-4 backdrop-blur-xl"
+                >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#33CCCC]/10 text-[#33CCCC]">
+                    <FontAwesomeIcon icon={faCheck} />
+                  </div>
+            
+                  <p className="text-sm font-semibold text-slate-200">
+                    {item}
+                  </p>
+                </div>
+              ))}
             </div>
           </motion.div>
         </div>

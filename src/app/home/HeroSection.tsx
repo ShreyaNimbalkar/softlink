@@ -15,14 +15,14 @@ import {
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-white dark:bg-slate-950 min-h-screen flex items-center transition-colors duration-300">
+    <section className="relative overflow-hidden bg-slate-950 text-white min-h-screen flex items-center transition-colors duration-300">
       {/* ================= BACKGROUND ================= */}
       <div className="absolute inset-0">
         <div className="absolute left-0 top-0 h-96 w-96 rounded-full bg-[#33CCCC]/20 blur-3xl" />
 
         <div className="absolute right-0 bottom-0 h-[400px] w-[400px] rounded-full bg-[#33CCCC]/10 blur-3xl" />
 
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:80px_80px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:80px_80px]" />
       </div>
 
       {/* ================= CONTENT ================= */}
@@ -41,13 +41,13 @@ export default function HeroSection() {
                 className="text-[#33CCCC]"
               />
 
-              <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
+              <span className="text-sm font-medium text-slate-300">
                 Trusted IT Infrastructure Partner
               </span>
             </div>
 
             {/* HEADING */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1.05] text-slate-900 dark:text-white">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1.05] text-white">
               Online Solutions
               <span className="block text-[#33CCCC]">
                 To Boost Your Business
@@ -55,7 +55,7 @@ export default function HeroSection() {
             </h1>
 
             {/* DESCRIPTION */}
-            <p className="mt-7 text-base sm:text-lg lg:text-xl leading-relaxed text-slate-600 dark:text-slate-400 max-w-2xl">
+            <p className="mt-7 text-base sm:text-lg lg:text-xl leading-relaxed text-slate-400 max-w-2xl">
               We help businesses scale with enterprise networking,
               cloud infrastructure, security systems, hardware support,
               and managed IT services designed for reliability and growth.
@@ -77,7 +77,7 @@ export default function HeroSection() {
 
               <Link
                 href="/services"
-                className="inline-flex items-center justify-center rounded-full border border-slate-300 dark:border-white/10 px-8 py-4 font-semibold text-slate-700 dark:text-slate-200 hover:border-[#33CCCC] hover:text-[#33CCCC] transition-all duration-300"
+                className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/[0.03] px-8 py-4 font-semibold text-slate-200 hover:border-[#33CCCC] hover:text-[#33CCCC] transition-all duration-300"
               >
                 Explore Services
               </Link>
@@ -91,11 +91,11 @@ export default function HeroSection() {
                 ["24/7", "Technical Support"],
               ].map(([number, label], index) => (
                 <div key={index}>
-                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white">
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white">
                     {number}
                   </h3>
 
-                  <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+                  <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-400">
                     {label}
                   </p>
                 </div>
@@ -111,7 +111,7 @@ export default function HeroSection() {
             className="relative"
           >
             {/* MAIN CARD */}
-            <div className="relative overflow-hidden rounded-[32px] sm:rounded-[40px] border border-slate-200 dark:border-white/10 bg-white dark:bg-slate-900 shadow-[0_20px_80px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
+            <div className="relative overflow-hidden rounded-[32px] sm:rounded-[40px] border border-white/10 bg-slate-900 shadow-[0_20px_80px_rgba(0,0,0,0.55)]">
               {/* IMAGE */}
               <img
                 src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop"
@@ -120,10 +120,10 @@ export default function HeroSection() {
               />
 
               {/* OVERLAY */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
 
               {/* FLOATING INFO CARD */}
-              <div className="absolute bottom-5 left-5 right-5 sm:bottom-8 sm:left-8 sm:right-auto bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-3xl p-5 sm:p-6 shadow-2xl max-w-sm">
+              <div className="absolute bottom-5 left-5 right-5 sm:bottom-8 sm:left-8 sm:right-auto bg-slate-950/90 backdrop-blur-xl border border-white/10 rounded-3xl p-5 sm:p-6 shadow-2xl max-w-sm">
                 <div className="flex items-center gap-4">
                   <div className="w-14 h-14 rounded-2xl bg-[#33CCCC]/10 flex items-center justify-center">
                     <FontAwesomeIcon
@@ -133,11 +133,11 @@ export default function HeroSection() {
                   </div>
 
                   <div>
-                    <h4 className="text-lg font-bold text-slate-900 dark:text-white">
+                    <h4 className="text-lg font-bold text-white">
                       Enterprise IT Solutions
                     </h4>
 
-                    <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">
+                    <p className="text-sm text-slate-400 mt-1">
                       Secure and scalable infrastructure for businesses.
                     </p>
                   </div>
@@ -146,11 +146,11 @@ export default function HeroSection() {
             </div>
 
             {/* FLOATING MINI CARDS */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="hidden md:flex absolute -left-10 top-16 bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-3xl p-5 shadow-2xl items-center gap-4"
+              className="hidden md:flex absolute -left-10 top-16 bg-slate-950 border border-white/10 rounded-3xl p-5 shadow-2xl items-center gap-4"
             >
               <div className="w-12 h-12 rounded-2xl bg-[#33CCCC]/10 flex items-center justify-center">
                 <FontAwesomeIcon
@@ -160,21 +160,21 @@ export default function HeroSection() {
               </div>
 
               <div>
-                <h5 className="font-bold text-slate-900 dark:text-white">
+                <h5 className="font-bold text-white">
                   Secure Systems
                 </h5>
 
-                <p className="text-sm text-slate-500 dark:text-slate-400">
+                <p className="text-sm text-slate-400">
                   Advanced protection
                 </p>
               </div>
-            </motion.div>
+            </motion.div> */}
 
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="hidden md:flex absolute -right-8 bottom-20 bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-3xl p-5 shadow-2xl items-center gap-4"
+              className="hidden md:flex absolute -right-8 bottom-20 bg-slate-950 border border-white/10 rounded-3xl p-5 shadow-2xl items-center gap-4"
             >
               <div className="w-12 h-12 rounded-2xl bg-[#33CCCC]/10 flex items-center justify-center">
                 <FontAwesomeIcon
@@ -184,15 +184,15 @@ export default function HeroSection() {
               </div>
 
               <div>
-                <h5 className="font-bold text-slate-900 dark:text-white">
+                <h5 className="font-bold text-white">
                   24/7 Support
                 </h5>
 
-                <p className="text-sm text-slate-500 dark:text-slate-400">
+                <p className="text-sm text-slate-400">
                   Dedicated assistance
                 </p>
               </div>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         </div>
       </div>

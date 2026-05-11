@@ -12,6 +12,7 @@ import {
   faVideo,
   faShieldHalved,
 } from "@fortawesome/free-solid-svg-icons";
+import { faCheck } from "@fortawesome/free-solid-svg-icons/faCheck";
 
 export default function LicenseHero() {
   return (
@@ -66,12 +67,12 @@ export default function LicenseHero() {
             transition={{ duration: 0.7 }}
             className="relative"
           >
-            <div className="hidden lg:block relative overflow-hidden rounded-[40px] border border-white/10 bg-white/5 p-6 backdrop-blur-2xl">
-              {/* TOP CARD */}
-              {/* SERVICE 1 */}
-              <div className="rounded-3xl border border-white/10 bg-slate-900/60 p-8">
-                {/* SERVICE 1 */}
-                {/* <div className="flex items-start gap-5">
+            {/* <div className="hidden lg:block relative overflow-hidden rounded-[40px] border border-white/10 bg-white/5 p-6 backdrop-blur-2xl"> */}
+            {/* TOP CARD */}
+            {/* SERVICE 1 */}
+            {/* <div className="rounded-3xl border border-white/10 bg-slate-900/60 p-8"> */}
+            {/* SERVICE 1 */}
+            {/* <div className="flex items-start gap-5">
     <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#33CCCC]/20 text-[#33CCCC]">
       <FontAwesomeIcon
         icon={faNetworkWired}
@@ -90,8 +91,8 @@ export default function LicenseHero() {
     </div>
   </div> */}
 
-                {/* SERVICE 2 */}
-                {/* <div className="flex items-start gap-5 mt-5">
+            {/* SERVICE 2 */}
+            {/* <div className="flex items-start gap-5 mt-5">
     <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#33CCCC]/20 text-[#33CCCC]">
       <FontAwesomeIcon
         icon={faLaptop}
@@ -110,8 +111,8 @@ export default function LicenseHero() {
     </div>
   </div> */}
 
-                {/* SERVICE 3 */}
-                {/* <div className="flex items-start gap-5 mt-5">
+            {/* SERVICE 3 */}
+            {/* <div className="flex items-start gap-5 mt-5">
     <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#33CCCC]/20 text-[#33CCCC]">
       <FontAwesomeIcon
         icon={faVideo}
@@ -130,8 +131,8 @@ export default function LicenseHero() {
     </div>
   </div> */}
 
-                {/* SERVICE 4 */}
-                <div className="flex items-start gap-5 mt-5">
+            {/* SERVICE 4 */}
+            {/* <div className="flex items-start gap-5 mt-5">
                   <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#33CCCC]/20 text-[#33CCCC]">
                     <FontAwesomeIcon icon={faShieldHalved} className="text-2xl"/>
                   </div>
@@ -147,10 +148,10 @@ export default function LicenseHero() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
-              {/* SMALL CARDS */}
-              {/* <div className="mt-6 grid grid-cols-2 gap-5">
+            {/* SMALL CARDS */}
+            {/* <div className="mt-6 grid grid-cols-2 gap-5">
                 <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#33CCCC]/10 text-[#33CCCC]">
                     <FontAwesomeIcon icon={faComputer} className="text-2xl"/>
@@ -182,6 +183,25 @@ export default function LicenseHero() {
                   </p>
                 </div>
               </div> */}
+            {/* </div> */}
+            <div className="mt-10 flex flex-col gap-4">
+              {[
+                "Rental Systems : Computers, laptops & accessories",
+
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-4 backdrop-blur-xl"
+                >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#33CCCC]/10 text-[#33CCCC]">
+                    <FontAwesomeIcon icon={faCheck} />
+                  </div>
+
+                  <p className="text-sm font-semibold text-slate-200">
+                    {item}
+                  </p>
+                </div>
+              ))}
             </div>
           </motion.div>
         </div>
@@ -198,13 +218,13 @@ export default function LicenseHero() {
               Home
             </Link>
 
-            <FontAwesomeIcon icon={faChevronRight} className="text-[10px] text-slate-500"/>
+            <FontAwesomeIcon icon={faChevronRight} className="text-[10px] text-slate-500" />
 
             <Link href="/services" className="text-sm font-medium text-slate-400 transition hover:text-[#33CCCC]">
               Services
             </Link>
 
-            <FontAwesomeIcon icon={faChevronRight} className="text-[10px] text-slate-500"/>
+            <FontAwesomeIcon icon={faChevronRight} className="text-[10px] text-slate-500" />
 
             <span className="text-sm font-semibold text-[#33CCCC]">
               Software Licenses
