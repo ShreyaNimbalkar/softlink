@@ -76,7 +76,7 @@ export default function HeroSection() {
               </Link>
 
               <Link
-                href="/services"
+                href="/repair-rental"
                 className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/[0.03] px-8 py-4 font-semibold text-slate-200 hover:border-[#33CCCC] hover:text-[#33CCCC] transition-all duration-300"
               >
                 Explore Services

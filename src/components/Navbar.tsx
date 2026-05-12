@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -44,6 +45,8 @@ const navLinks = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+
   const [mobileMenu, setMobileMenu] = useState(false);
 
   const [openDropdown, setOpenDropdown] = useState(false);
@@ -77,6 +80,13 @@ export default function Navbar() {
       document.body.style.overflow = "auto";
     };
   }, [mobileMenu, quotationOpen]);
+
+  // ================= ACTIVE LINK =================
+  const isActive = (href: string) => pathname === href;
+
+  const isServiceActive = navLinks
+    .find((link) => link.name === "Services")
+    ?.submenu?.some((item) => pathname === item.href);
 
   return (
     <>
@@ -114,7 +124,13 @@ export default function Navbar() {
                       onMouseEnter={() => setOpenDropdown(true)}
                       onMouseLeave={() => setOpenDropdown(false)}
                     >
-                      <button className="flex items-center gap-2 text-white font-medium hover:text-[#33CCCC] transition-all duration-300">
+                      <button
+                        className={`flex items-center gap-2 font-medium transition-all duration-300 ${
+                          isServiceActive
+                            ? "text-[#33CCCC]"
+                            : "text-white hover:text-[#33CCCC]"
+                        }`}
+                      >
                         {link.name}
 
                         <FontAwesomeIcon
@@ -124,6 +140,13 @@ export default function Navbar() {
                           }`}
                         />
                       </button>
+
+                      {/* ACTIVE LINE */}
+                      <div
+                        className={`absolute -bottom-1 left-0 h-[2px] bg-[#33CCCC] transition-all duration-300 ${
+                          isServiceActive ? "w-full" : "w-0"
+                        }`}
+                      />
 
                       <AnimatePresence>
                         {openDropdown && (
@@ -139,13 +162,21 @@ export default function Navbar() {
                                 <Link
                                   key={item.name}
                                   href={item.href}
-                                  className="group flex items-center justify-between rounded-2xl px-5 py-4 text-sm font-medium text-slate-300 hover:bg-white/5 hover:text-[#33CCCC] transition-all duration-300"
+                                  className={`group flex items-center justify-between rounded-2xl px-5 py-4 text-sm font-medium transition-all duration-300 ${
+                                    pathname === item.href
+                                      ? "bg-[#33CCCC]/10 text-[#33CCCC]"
+                                      : "text-slate-300 hover:bg-white/5 hover:text-[#33CCCC]"
+                                  }`}
                                 >
                                   {item.name}
 
                                   <FontAwesomeIcon
                                     icon={faArrowRight}
-                                    className="text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300"
+                                    className={`text-xs transition-all duration-300 ${
+                                      pathname === item.href
+                                        ? "opacity-100 translate-x-1"
+                                        : "opacity-0 group-hover:opacity-100 group-hover:translate-x-1"
+                                    }`}
                                   />
                                 </Link>
                               ))}
@@ -157,7 +188,11 @@ export default function Navbar() {
                   ) : (
                     <Link
                       href={link.href}
-                      className="relative text-white font-medium hover:text-[#33CCCC] transition-all duration-300 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-[#33CCCC] hover:after:w-full after:transition-all after:duration-300"
+                      className={`relative font-medium transition-all duration-300 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:bg-[#33CCCC] after:transition-all after:duration-300 ${
+                        isActive(link.href)
+                          ? "text-[#33CCCC] after:w-full"
+                          : "text-white hover:text-[#33CCCC] after:w-0 hover:after:w-full"
+                      }`}
                     >
                       {link.name}
                     </Link>
@@ -310,22 +345,40 @@ export default function Navbar() {
                           <Link
                             href={link.href}
                             onClick={() => setMobileMenu(false)}
-                            className="group flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-4 text-base font-semibold text-white hover:border-[#33CCCC]/40 hover:bg-[#33CCCC]/5 transition-all duration-300"
+                            className={`group flex items-center justify-between rounded-2xl border px-5 py-4 text-base font-semibold transition-all duration-300 ${
+                              isActive(link.href)
+                                ? "border-[#33CCCC]/40 bg-[#33CCCC]/10 text-[#33CCCC]"
+                                : "border-white/10 bg-white/[0.03] text-white hover:border-[#33CCCC]/40 hover:bg-[#33CCCC]/5"
+                            }`}
                           >
                             {link.name}
 
                             <FontAwesomeIcon
                               icon={faArrowRight}
-                              className="text-sm opacity-60 group-hover:translate-x-1 transition-transform duration-300"
+                              className={`text-sm transition-transform duration-300 ${
+                                isActive(link.href)
+                                  ? "translate-x-1 opacity-100"
+                                  : "opacity-60 group-hover:translate-x-1"
+                              }`}
                             />
                           </Link>
                         ) : (
-                          <div className="rounded-2xl border border-white/10 bg-white/[0.03] overflow-hidden">
+                          <div
+                            className={`rounded-2xl border overflow-hidden ${
+                              isServiceActive
+                                ? "border-[#33CCCC]/40 bg-[#33CCCC]/5"
+                                : "border-white/10 bg-white/[0.03]"
+                            }`}
+                          >
                             <button
                               onClick={() =>
                                 setMobileDropdown(!mobileDropdown)
                               }
-                              className="flex w-full items-center justify-between px-5 py-4 text-base font-semibold text-white"
+                              className={`flex w-full items-center justify-between px-5 py-4 text-base font-semibold transition-all duration-300 ${
+                                isServiceActive
+                                  ? "text-[#33CCCC]"
+                                  : "text-white"
+                              }`}
                             >
                               {link.name}
 
@@ -362,7 +415,11 @@ export default function Navbar() {
                                         onClick={() =>
                                           setMobileMenu(false)
                                         }
-                                        className="flex items-center justify-between rounded-xl px-4 py-3 text-sm text-slate-300 hover:bg-[#33CCCC]/10 hover:text-[#33CCCC] transition-all duration-300"
+                                        className={`flex items-center justify-between rounded-xl px-4 py-3 text-sm transition-all duration-300 ${
+                                          pathname === item.href
+                                            ? "bg-[#33CCCC]/10 text-[#33CCCC]"
+                                            : "text-slate-300 hover:bg-[#33CCCC]/10 hover:text-[#33CCCC]"
+                                        }`}
                                       >
                                         {item.name}
 
@@ -424,8 +481,6 @@ export default function Navbar() {
     </>
   );
 }
-
-
 
 
 

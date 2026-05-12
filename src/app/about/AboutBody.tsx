@@ -109,7 +109,7 @@ export default function AboutBody() {
             </div>
 
             {/* CTA */}
-            <div className="mt-10">
+            {/* <div className="mt-10">
               <button className="group inline-flex items-center gap-3 rounded-2xl bg-[#33CCCC] px-7 py-4 font-semibold text-white shadow-xl shadow-[#33CCCC]/20 transition-all duration-300 hover:scale-[1.02] hover:bg-[#29B3B3]">
                 Explore Solutions
 
@@ -118,7 +118,7 @@ export default function AboutBody() {
                   className="text-sm transition-transform duration-300 group-hover:translate-x-1"
                 />
               </button>
-            </div>
+            </div> */}
           </motion.div>
 
           {/* RIGHT */}
@@ -228,14 +228,14 @@ export default function AboutBody() {
                 </p>
               </div>
 
-              <button className="group inline-flex items-center justify-center gap-3 rounded-2xl bg-[#33CCCC] px-7 py-4 font-semibold text-white shadow-xl shadow-[#33CCCC]/20 transition-all duration-300 hover:scale-[1.02] hover:bg-[#29B3B3]">
+              {/* <button className="group inline-flex items-center justify-center gap-3 rounded-2xl bg-[#33CCCC] px-7 py-4 font-semibold text-white shadow-xl shadow-[#33CCCC]/20 transition-all duration-300 hover:scale-[1.02] hover:bg-[#29B3B3]">
                 Get Started
 
                 <FontAwesomeIcon
                   icon={faArrowRight}
                   className="text-sm transition-transform duration-300 group-hover:translate-x-1"
                 />
-              </button>
+              </button> */}
             </div>
           </div>
         </motion.div>

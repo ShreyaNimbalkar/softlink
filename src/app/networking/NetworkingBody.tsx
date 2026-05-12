@@ -23,6 +23,7 @@ import {
   faCommentDots,
   faFilePdf,
 } from "@fortawesome/free-solid-svg-icons";
+import QuotationGenerator from "@/components/QuotationGenerator";
 
 const services = [
   {
@@ -70,6 +71,12 @@ const services = [
 
 export default function NetworkingBody() {
   const [openModal, setOpenModal] = useState(false);
+  const [openQuotation, setOpenQuotation] = useState(false);
+  const openQuotationModal = () => {
+  setOpenQuotation(true);
+
+  document.body.style.overflow = "hidden";
+};
 
   const [selectedService, setSelectedService] = useState("");
 
@@ -82,10 +89,12 @@ export default function NetworkingBody() {
   };
 
   const closeModal = () => {
-    setOpenModal(false);
+  setOpenModal(false);
 
-    document.body.style.overflow = "auto";
-  };
+  setOpenQuotation(false);
+
+  document.body.style.overflow = "auto";
+};
 
   return (
     <>
@@ -192,18 +201,18 @@ export default function NetworkingBody() {
                     </button>
 
                     {/* DOWNLOAD QUOTATION */}
-                    <a
-                      href={service.quotation}
-                      download
+                    <button
+                      onClick={openQuotationModal}
+                      
                       className="group inline-flex h-14 w-full items-center justify-center gap-3 rounded-2xl border border-cyan-400/20 bg-cyan-400/5 px-6 font-semibold text-cyan-300 transition-all duration-300 hover:border-cyan-400/50 hover:bg-[#33CCCC] hover:text-slate-950"
                     >
-                      <FontAwesomeIcon
+                      {/* <FontAwesomeIcon
                         icon={faFilePdf}
                         className="text-sm"
-                      />
+                      /> */}
 
-                      Download Quotation
-                    </a>
+                      Get Quotation
+                    </button>
                   </div>
                 </div>
               </motion.div>
@@ -372,6 +381,46 @@ export default function NetworkingBody() {
                       </button>
                     </div>
                   </form>
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+      {/* QUOTATION MODAL */}
+      <AnimatePresence>
+        {openQuotation && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={closeModal}
+              className="fixed inset-0 z-[200] bg-black/80 backdrop-blur-md"
+            />
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.94, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.94, y: 30 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 z-[201] flex items-center justify-center p-4"
+            >
+              <div className="relative h-[95vh] w-full max-w-7xl overflow-hidden rounded-[40px] border border-white/10 bg-slate-950 shadow-2xl">
+                {/* CLOSE BUTTON */}
+                <button
+                  onClick={closeModal}
+                  className="absolute right-6 top-6 z-50 flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900 text-white shadow-xl"
+                >
+                  <FontAwesomeIcon
+                    icon={faXmark}
+                    className="text-lg"
+                  />
+                </button>
+
+                {/* QUOTATION FORM */}
+                <div className="h-full overflow-y-auto">
+                  <QuotationGenerator />
                 </div>
               </div>
             </motion.div>

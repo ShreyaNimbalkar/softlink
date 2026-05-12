@@ -11,6 +11,7 @@ import {
   faClock,
   faPaperPlane,
   faHeadset,
+  faCheck,
 } from "@fortawesome/free-solid-svg-icons";
 
 const contactInfo = [
@@ -18,28 +19,50 @@ const contactInfo = [
     icon: faPhone,
     title: "Phone Number",
     value: "+91 98765 43210",
+    type: "phone",
   },
 
   {
     icon: faEnvelope,
     title: "Email Address",
     value: "info@yourcompany.com",
+    type: "email",
   },
 
   {
     icon: faLocationDot,
     title: "Office Address",
-    value: "Your Office Address Here",
+    value: "Mumbai, Maharashtra, India",
+    type: "address",
   },
 
   {
     icon: faClock,
     title: "Working Hours",
     value: "Mon - Sat : 9:00 AM - 7:00 PM",
+    type: "text",
   },
 ];
 
+const services = [
+  "Networking Solutions",
+  "CCTV Installation",
+  "Software Licenses",
+  "Laptop/Desktop Repair",
+  "Server Setup",
+  "WiFi Solutions",
+  "AMC Support",
+  "Cloud Solutions",
+];
+
 export default function ContactBody() {
+  // COPY PHONE
+  const handlePhoneClick = (phone: string) => {
+    navigator.clipboard.writeText(phone);
+
+    alert("Phone number copied!");
+  };
+
   return (
     <section className="relative overflow-hidden bg-slate-950 py-28">
       {/* BACKGROUND */}
@@ -84,6 +107,29 @@ export default function ContactBody() {
               for your business.
             </p>
 
+            {/* FEATURES */}
+            <div className="mt-10 flex flex-col gap-4">
+              {[
+                "Professional IT Consultation",
+                "Fast Technical Support",
+                "Enterprise Solutions",
+                "Reliable Service Assistance",
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-4 backdrop-blur-xl"
+                >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#33CCCC]/10 text-[#33CCCC]">
+                    <FontAwesomeIcon icon={faCheck} />
+                  </div>
+
+                  <p className="text-sm font-semibold text-slate-200">
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
+
             {/* CONTACT INFO */}
             <div className="mt-10 grid gap-5">
               {contactInfo.map((item, index) => (
@@ -112,9 +158,48 @@ export default function ContactBody() {
                         {item.title}
                       </h4>
 
-                      <p className="mt-2 text-sm leading-relaxed text-slate-400">
-                        {item.value}
-                      </p>
+                      {/* PHONE */}
+                      {item.type === "phone" && (
+                        <button
+                          onClick={() =>
+                            handlePhoneClick(item.value)
+                          }
+                          className="mt-2 text-sm leading-relaxed text-slate-400 transition hover:text-[#33CCCC]"
+                        >
+                          {item.value}
+                        </button>
+                      )}
+
+                      {/* EMAIL */}
+                      {item.type === "email" && (
+                        <a
+                          href={`mailto:${item.value}`}
+                          className="mt-2 block text-sm leading-relaxed text-slate-400 transition hover:text-[#33CCCC]"
+                        >
+                          {item.value}
+                        </a>
+                      )}
+
+                      {/* ADDRESS */}
+                      {item.type === "address" && (
+                        <a
+                          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                            item.value
+                          )}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-2 block text-sm leading-relaxed text-slate-400 transition hover:text-[#33CCCC]"
+                        >
+                          {item.value}
+                        </a>
+                      )}
+
+                      {/* NORMAL TEXT */}
+                      {item.type === "text" && (
+                        <p className="mt-2 text-sm leading-relaxed text-slate-400">
+                          {item.value}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </motion.div>
@@ -184,6 +269,28 @@ export default function ContactBody() {
                     className="h-14 rounded-2xl border border-white/10 bg-white/[0.03] px-5 text-white outline-none transition-all duration-300 placeholder:text-slate-500 focus:border-[#33CCCC]"
                   />
                 </div>
+
+                {/* SERVICE DROPDOWN */}
+                <select
+                  className="h-14 rounded-2xl border border-white/10 bg-white/[0.03] px-5 text-white outline-none transition-all duration-300 focus:border-[#33CCCC]"
+                >
+                  <option
+                    value=""
+                    className="bg-slate-900 text-slate-400"
+                  >
+                    Select Service
+                  </option>
+
+                  {services.map((service, index) => (
+                    <option
+                      key={index}
+                      value={service}
+                      className="bg-slate-900 text-white"
+                    >
+                      {service}
+                    </option>
+                  ))}
+                </select>
 
                 <textarea
                   rows={6}

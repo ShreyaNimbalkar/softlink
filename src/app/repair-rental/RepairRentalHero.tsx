@@ -65,7 +65,7 @@ export default function RepairRentalHero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7 }}
-            className="relative"
+            className="relative hidden lg:block"
           >
             {/* <div className="hidden lg:block relative overflow-hidden rounded-[40px] border border-white/10 bg-white/5 p-6 backdrop-blur-2xl"> */}
               {/* TOP CARD */}

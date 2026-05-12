@@ -122,14 +122,14 @@ export default function IndustriesSection() {
                 </p>
 
                 {/* CTA */}
-                <div className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[#33CCCC]">
+                {/* <div className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[#33CCCC]">
                   Learn More
 
                   <FontAwesomeIcon
                     icon={faArrowRight}
                     className="text-xs transition-transform duration-300 group-hover:translate-x-1"
                   />
-                </div>
+                </div> */}
               </div>
 
               {/* BORDER LIGHT */}
